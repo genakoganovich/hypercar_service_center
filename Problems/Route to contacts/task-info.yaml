@@ -1,0 +1,24 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    from django.urls import path
+    from django.views import View
+
+
+    class ContactsView(View):
+        pass
+
+
+    urlpatterns = [
+
+    ]
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/8761#comment
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/8761#comment">JetBrains
+    Academy</a></html>
+  time: Sun, 15 Nov 2020 21:10:38 UTC
+record: -1

@@ -720,6 +720,45 @@ files:
         """ Reports success """
         print("#educational_plugin test OK")
   learner_created: false
+- name: hypercar/tickets/templates/tickets/ticket.html
+  visible: true
+  text: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hypercar Service Ticket</title>
+    </head>
+    <body>
+        Ticket {{ content }}
+    </body>
+    </html>
+  learner_created: true
+- name: hypercar/tickets/templates/tickets/menu.html
+  visible: true
+  text: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hypercar Service Menu</title>
+    </head>
+    <body>
+        <h2> Hypercar Service Menu </h2>
+        <ul>
+        {% for key, value in tickets.items %}
+        <li>
+            <a href="/get_ticket/{{ key }}">{{ value }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    </body>
+    </html>
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/85/stages/472/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/85/stages/472/implement">JetBrains
+    Academy</a>
+  time: Mon, 23 Nov 2020 19:45:46 UTC
 record: -1

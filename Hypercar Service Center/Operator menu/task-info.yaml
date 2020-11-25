@@ -745,6 +745,66 @@ files:
         """ Reports success """
         print("#educational_plugin test OK")
   learner_created: false
+- name: hypercar/tickets/templates/tickets/ticket.html
+  visible: true
+  text: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hypercar Service Ticket</title>
+    </head>
+    <body>
+        <div>Your number is {{ ticket_number }}</div>
+        <div>Please wait around {{ minutes_to_wait }} minutes</div>
+    </body>
+    </html>
+  learner_created: true
+- name: hypercar/tickets/templates/tickets/processing.html
+  visible: true
+  text: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Processing</title>
+    </head>
+    <body>
+        <div>Change oil queue: 3</div>
+        <div>Inflate tires queue: 4</div>
+        <div>Get diagnostic queue: 1</div>
+
+        <form method="post">{% csrf_token %}
+        <button type="submit">Process next</button>
+        </form>
+    </body>
+    </html>
+  learner_created: true
+- name: hypercar/tickets/templates/tickets/menu.html
+  visible: true
+  text: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hypercar Service Menu</title>
+    </head>
+    <body>
+        <h2> Hypercar Service Menu </h2>
+        <ul>
+        {% for key, value in tickets.items %}
+        <li>
+            <a href="/get_ticket/{{ key }}">{{ value }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    </body>
+    </html>
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/85/stages/473/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/85/stages/473/implement">JetBrains
+    Academy</a>
+  time: Wed, 25 Nov 2020 20:13:27 UTC
 record: -1

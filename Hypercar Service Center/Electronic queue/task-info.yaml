@@ -755,10 +755,13 @@ files:
     </body>
     </html>
   learner_created: true
+- name: hypercar/tickets/templates/tickets/processing.html
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/85/stages/472/implement#comment
 status: Solved
 feedback:
   message: Congratulations! Continue on <a href="https://hyperskill.org/projects/85/stages/472/implement">JetBrains
     Academy</a>
   time: Mon, 23 Nov 2020 19:45:46 UTC
-record: -1
+record: 3

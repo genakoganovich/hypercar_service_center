@@ -4,12 +4,22 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 
 
-template_name = 'tickets/menu.html'
 tickets = {
     'change_oil': 'Change oil',
     'inflate_tires': 'Inflate tires',
     'diagnostic': 'Diagnostic',
 }
+
+
+class ProcessingView(View):
+    template_name = 'tickets/processing.html'
+
+    def get(self, request, *args, **kwargs):
+        queue = {}
+        for key in tickets.keys():
+            queue[key] = len(TicketView.line_of_cars[key])
+            context={'tickets': tickets, 'queue': queue}
+        return render(request, template_name=ProcessingView.template_name, context=context)
 
 
 class WelcomeView(View):
@@ -19,8 +29,10 @@ class WelcomeView(View):
 
 
 class MenuView(View):
+    template_name = 'tickets/menu.html'
+
     def get(self, request, *args, **kwargs):
-        return render(request, template_name=template_name, context={'tickets': tickets})
+        return render(request, template_name=MenuView.template_name, context={'tickets': tickets})
 
 
 class TicketView(TemplateView):
